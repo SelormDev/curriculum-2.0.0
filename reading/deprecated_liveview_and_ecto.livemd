@@ -34,10 +34,10 @@ Mix.install([
 
 Upon completing this lesson, a student should be able to answer the following questions.
 
-* How can we navigate the user from the client, and from the server?
-* How do we test a LiveView?
-* How do we use Phoenix Components to abstract and reuse code?
-* How can a LiveView render different UI based on URL params?
+- How can we navigate the user from the client, and from the server?
+- How do we test a LiveView?
+- How do we use Phoenix Components to abstract and reuse code?
+- How can a LiveView render different UI based on URL params?
 
 ## Overview
 
@@ -59,7 +59,7 @@ mix phx.gen.live Context Schema table field_name:field_type
 
 [Phoenix LiveComponent](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveComponent.html) encapsulates the behavior of a LiveView (state, message handling, displaying html) into a sub-component that can be placed inside of another LiveView.
 
-This allows us to break apart our LiveViews into several smaller components, that can even be re-used.
+This allows us to break apart our LiveViews into several smaller components, that can even be reused.
 
 <!-- livebook:{"force_markdown":true} -->
 
@@ -89,14 +89,14 @@ Like LiveViews, LiveComponents can send messages using `phx-*` bindings. By defa
 
 ```mermaid
 flowchart
-LiveComponent --event--> ParentLiveView 
+LiveComponent --event--> ParentLiveView
 ```
 
 Alternatively, you can use `@myself` to send a message to itself.
 
 ```mermaid
 flowchart
-LiveComponent --event--> LiveComponent 
+LiveComponent --event--> LiveComponent
 ```
 
 <!-- livebook:{"force_markdown":true} -->
@@ -153,7 +153,7 @@ Messages will have a `:content` and `:from` field.
 We can use the [mix phx.gen.live](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Live.html) phoenix generator to create the scaffolding for CRUD actions using LiveViews.
 
 ```
-$ mix phx.gen.live Chat Message messages content:text from:string 
+$ mix phx.gen.live Chat Message messages content:text from:string
 ```
 
 The majority of this lesson will be reading through the generated code in order to better understand how we can build applications with LiveView.
@@ -169,7 +169,7 @@ scope "/", PicChatWeb do
   pipe_through :browser
 
   live "/", MessageLive.Index, :index
-  
+
   live "/new", MessageLive.Index, :new
   live "/:id/edit", MessageLive.Index, :edit
 
@@ -414,15 +414,15 @@ This `PicChatWeb.MessageLive.FormComponent` renders the `form_component.html.hee
     phx-target={@myself}
     phx-change="validate"
     phx-submit="save">
-  
+
     <%= label f, :content %>
     <%= textarea f, :content %>
     <%= error_tag f, :content %>
-  
+
     <%= label f, :from %>
     <%= text_input f, :from %>
     <%= error_tag f, :from %>
-  
+
     <div>
       <%= submit "Save", phx_disable_with: "Saving..." %>
     </div>
@@ -467,7 +467,7 @@ defp save_message(socket, :new, message_params) do
       {:noreply,
         socket
         |> put_flash(:info, "Message created successfully")
-        # socket.assigns.return_to comes from the `return_to` attribute 
+        # socket.assigns.return_to comes from the `return_to` attribute
         # in our `<.live_component>`
         |> push_redirect(to: socket.assigns.return_to)}
 
@@ -652,19 +652,19 @@ Read through the `message_live_test.ex` file to get a better understanding of pa
 
 Consider the following resource(s) to deepen your understanding of the topic.
 
-* [HexDocs: LiveView](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html)
-* [HexDocs: LiveComponent](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveComponent.html)
-* [HexDocs: Phoenix.HTML](https://hexdocs.pm/phoenix_html/Phoenix.HTML.html)
-* [Elixir Schools: LiveView](https://elixirschool.com/blog/phoenix-live-view/)
-* [HexDocs: Component](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html)
-* [PragProg: Programming Phoenix LiveView](https://pragprog.com/titles/liveview/programming-phoenix-liveview/)
+- [HexDocs: LiveView](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html)
+- [HexDocs: LiveComponent](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveComponent.html)
+- [HexDocs: Phoenix.HTML](https://hexdocs.pm/phoenix_html/Phoenix.HTML.html)
+- [Elixir Schools: LiveView](https://elixirschool.com/blog/phoenix-live-view/)
+- [HexDocs: Component](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html)
+- [PragProg: Programming Phoenix LiveView](https://pragprog.com/titles/liveview/programming-phoenix-liveview/)
 
 ## (Bonus) Further Study
 
 A student who wants to do further research beyond this material may consider the following questions as inspiration.
 
-* What are slots?
-* How do you create a stateless function component?
+- What are slots?
+- How do you create a stateless function component?
 
 ## Commit Your Progress
 

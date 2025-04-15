@@ -34,8 +34,8 @@ Mix.install([
 
 Upon completing this lesson, a student should be able to answer the following questions.
 
-* What does the `use` keyword do?
-* What are the differences between a macro and a function?
+- What does the `use` keyword do?
+- What are the differences between a macro and a function?
 
 ## Overview
 
@@ -51,7 +51,7 @@ The Open Telecom Platform (OTP) is a collection of Erlang libraries and tools fo
 
 <!-- livebook:{"break_markdown":true} -->
 
-### [The BEAM (Erlang Virtual Machine)](https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine))
+### [The BEAM (Erlang Virtual Machine)](<https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine)>)
 
 The BEAM is the runtime environment for the Erlang and Elixir. It is a virtual machine that runs on a wide variety of platforms, including Unix-like operating systems, Windows, and MacOS. We often use the terms **Erlang Virtual Machine** and **BEAM** interchangeably.
 
@@ -82,8 +82,8 @@ Metaprogramming is the process of writing code that generates code.
 In Elixir, we use macros for code generation. Macros are a powerful tool for generating code. However, they can lead to additional complexity and should be used with care.
 
 > Even though Elixir attempts its best to provide a safe environment for macros, the major responsibility of writing clean code with macros falls on developers. Macros are harder to write than ordinary Elixir functions and it’s considered to be bad style to use them when they’re not necessary. So write macros responsibly.
-> 
-> * [elixir-lang.org](https://elixir-lang.org/getting-started/meta/macros.html)
+>
+> - [elixir-lang.org](https://elixir-lang.org/getting-started/meta/macros.html)
 
 We're going to learn how to leverage metaprogramming to extend the Elixir language and minimize boilerplate code.
 
@@ -109,9 +109,9 @@ The second element is a keyword list containing metadata, and the third element 
 
 So `2 + 2` as a quoted expression is
 
-* function: `:+`
-* metadata: `[context: Elixir, import: Kernel]`
-* arguments: `[2, 2]`
+- function: `:+`
+- metadata: `[context: Elixir, import: Kernel]`
+- arguments: `[2, 2]`
 
 The function name is `:+`, which refers to the `Kernel.+/2` function. `+` is simply a convenient syntax for calling this function.
 
@@ -312,7 +312,7 @@ quoted =
 Code.eval_quoted(quoted)
 ```
 
-To gain access to the variable, we can use `unquote` to evalate it into the quoted expression.
+To gain access to the variable, we can use `unquote` to evaluate it into the quoted expression.
 
 ```elixir
 a = 2
@@ -505,7 +505,7 @@ require AssertionWithBindQuoted
 AssertionWithBindQuoted.assert(1 == 2) |> IO.puts()
 ```
 
-## Use And __using__
+## Use And **using**
 
 While you may not write macros often, you are likely to use them daily.
 For example, we have already relied on macros with the `use` keyword.
@@ -622,8 +622,8 @@ Usage.hello()
 
 Consider the following resource(s) to deepen your understanding of the topic.
 
-* [Elixir Schools: Metaprogramming](https://elixirschool.com/en/lessons/advanced/metaprogramming/)
-* [PragProg: Metaprogramming Elixir](https://pragprog.com/titles/cmelixir/metaprogramming-elixir/)
+- [Elixir Schools: Metaprogramming](https://elixirschool.com/en/lessons/advanced/metaprogramming/)
+- [PragProg: Metaprogramming Elixir](https://pragprog.com/titles/cmelixir/metaprogramming-elixir/)
 
 ## Commit Your Progress
 
